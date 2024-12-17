@@ -1,3 +1,31 @@
+## [6.9.0](https://github.com/jwplayer/ott-web-app/compare/v6.8.0...v6.9.0) (2024-12-17)
+
+
+### Features
+
+* **home:** add hero shelf swipe for all breakpoints ([3a3b814](https://github.com/jwplayer/ott-web-app/commit/3a3b814305097b8066f2ae6f5ce473e33d1cb388))
+* **i18n:** missing translations ([9d4b6a3](https://github.com/jwplayer/ott-web-app/commit/9d4b6a381b94b45babe64b31d027033626dfaa98))
+* **project:** add user_id support for DRM, Live and SSAI ([#653](https://github.com/jwplayer/ott-web-app/issues/653)) ([4df3aeb](https://github.com/jwplayer/ott-web-app/commit/4df3aebe8befa41611b9017dad793b67d8375864))
+* **project:** deterministic public url ([99d4658](https://github.com/jwplayer/ott-web-app/commit/99d46585866fc85d2d35379d09dd8a10758dcc10))
+* **project:** fade out hero’s based on scroll position ([932a362](https://github.com/jwplayer/ott-web-app/commit/932a3620aa3e9b3d54d17afc9a63f11fc4017b01))
+* **project:** remove card box-shadow ([a33d762](https://github.com/jwplayer/ott-web-app/commit/a33d76229d9ef151a24f4283346301d405175aea))
+* update custom entitlement configuration and apis ([#657](https://github.com/jwplayer/ott-web-app/issues/657)) ([7ee979e](https://github.com/jwplayer/ott-web-app/commit/7ee979ec5f0234346f87af390405df9fdb095bd3))
+
+
+### Bug Fixes
+
+* accessibility improvements for Hero shelf pagination and LayoutGrid ([9ad371d](https://github.com/jwplayer/ott-web-app/commit/9ad371da6f394e1cd5d8624a735fd24bc567d34d))
+* add array at polyfill ([6e554fb](https://github.com/jwplayer/ott-web-app/commit/6e554fb5cdad4b137c12e967122b6e312d2efc29))
+* crash when personal shelf data is not valid ([00e4725](https://github.com/jwplayer/ott-web-app/commit/00e47258de68a37e1de977adad4e4add74099384))
+* do not perform logout if password reset with token ([#648](https://github.com/jwplayer/ott-web-app/issues/648)) ([c3fbdc9](https://github.com/jwplayer/ott-web-app/commit/c3fbdc9dd219ec4f26484672193db4cb6efff76c))
+* dropdown box arrow spacing ([b4eafc6](https://github.com/jwplayer/ott-web-app/commit/b4eafc6de4a591cda6ef5a268c122a6f01b7c8e3))
+* fix modal closing behavior ([#649](https://github.com/jwplayer/ott-web-app/issues/649)) ([b65f0c5](https://github.com/jwplayer/ott-web-app/commit/b65f0c542c56a9cacd610015f75c51ff90664adb))
+* **home:** heroshelf description clamping not working ios ([16c3a02](https://github.com/jwplayer/ott-web-app/commit/16c3a02b8e1ded9562ad5fb7d05d9c6538e03201))
+* **i18n:** correct sidebar translation key ([8610c87](https://github.com/jwplayer/ott-web-app/commit/8610c8770cecdc85e78114d07e91cc721d2442f8))
+* **i18n:** translatable shelf titles for hub pages ([a17b9b6](https://github.com/jwplayer/ott-web-app/commit/a17b9b6bd9b7e19dd0ce8206c15eac1f1df412e6))
+* missing translation in playlist grid title ([4ae0b7e](https://github.com/jwplayer/ott-web-app/commit/4ae0b7e26bf061e4beb7744d690ce2f118fb7dc4))
+* use recommendations feed on live event screen ([#617](https://github.com/jwplayer/ott-web-app/issues/617)) ([294a7f3](https://github.com/jwplayer/ott-web-app/commit/294a7f34568a83c6d08a423e59b2b328a1dc7b3c))
+
 ## [6.8.0](https://github.com/jwplayer/ott-web-app/compare/v6.7.0...v6.8.0) (2024-11-08)
 
 
