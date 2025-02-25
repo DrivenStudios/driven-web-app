@@ -12,6 +12,7 @@ import Card from '../Card/Card';
 import InfiniteScrollLoader from '../InfiniteScrollLoader/InfiniteScrollLoader';
 import LayoutGrid from '../LayoutGrid/LayoutGrid';
 import createInjectableComponent from '../../modules/createInjectableComponent';
+import { getScrollParent } from '../../utils/dom';
 
 import styles from './CardGrid.module.scss';
 
@@ -118,6 +119,7 @@ function CardGrid({
       loadMore={loadMore ?? defaultLoadMore}
       hasMore={hasMore ?? defaultHasMore}
       loader={<InfiniteScrollLoader key="loader" />}
+      getScrollParent={getScrollParent}
       useWindow={false}
     >
       <LayoutGrid
