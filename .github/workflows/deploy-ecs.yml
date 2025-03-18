@@ -20,7 +20,7 @@ env:
   ECS_SERVICE: DrivenWebAppService
   ECS_CLUSTER: DrivenStudiosTestCluster
   ECS_TASK_DEFINITION: .aws/task-definition.json
-  CONTAINER_NAME: MY_CONTAINER_NAME
+  CONTAINER_NAME: DrivenWebAppContainer
 jobs:
   deploy:
     name: Deploy
