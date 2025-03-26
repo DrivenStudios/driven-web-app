@@ -16,7 +16,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: driven-studios/driven-web
+  ECR_REPOSITORY: driven-studios/driven-web-app
   ECS_SERVICE: DrivenWebAppService
   ECS_CLUSTER: DrivenStudiosTestCluster
   ECS_TASK_DEFINITION: .aws/task-definition.json

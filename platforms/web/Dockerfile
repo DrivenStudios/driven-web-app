@@ -1,5 +1,5 @@
 # Takes the default Nginx image as the base image
-FROM --platform=linux/amd64 nginx:alpine
+FROM nginx:alpine
 
 # Copy the config files
 ADD ./conf/ /etc/nginx/
