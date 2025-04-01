@@ -1,6 +1,8 @@
 # Takes the default Nginx image as the base image
 FROM nginx:alpine
 
+RUN apk update && apk add bash
+
 # Copy the config files
 ADD ./conf/ /etc/nginx/
 # Clears the static files
