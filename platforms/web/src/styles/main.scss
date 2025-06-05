@@ -2,6 +2,7 @@
 @use '@jwp/ott-ui-react/src/styles/variables';
 @use '@jwp/ott-ui-react/src/styles/accessibility';
 @use '@jwp/ott-ui-react/src/styles/mixins/responsive';
+@use './typography';
 
 :root {
   --primary-color: #{theme.$primary-color};
@@ -38,7 +39,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll; // this prevents layout jumps when navigating between screens
   color: var(--body-color);
-  font-family: var(--body-font-family);
+  font-family: var(--font-dm-sans);
   font-size: variables.$body-font-size;
   background-color: var(--body-background-color);
   -webkit-font-smoothing: antialiased;
