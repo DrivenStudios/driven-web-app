@@ -33,7 +33,7 @@ Analytics token for the JW Player's OTT Analytics feature.
 
 **assets.banner** (optional)
 
-Location of a JPG, PNG or GIF image to be used as the logo in the header (e.g. **/images/logo.png**).
+Location of a JPG, PNG or GIF image to be used as the logo in the header (e.g. **/images/driven-logo.png**).
 
 ---
 
@@ -104,8 +104,8 @@ each shelf separately.
 
 **content[].contentId**
 
-The eight-character Playlists IDs from the JW Player dashboard. These IDs populate the video "shelves" on your site. *
-*contentId** is not required if you use `continue_watching` or `favorites` **type**.
+The eight-character Playlists IDs from the JW Player dashboard. These IDs populate the video "shelves" on your site. \*
+\*contentId** is not required if you use `continue_watching` or `favorites` **type\*\*.
 
 ---
 
@@ -305,11 +305,11 @@ Note, this setting is ignored if Cleeng is not enabled (i.e. there is not Cleeng
 **integrations.cleeng.monthlyOffer** (optional)
 
 If Cleeng is enabled, and you want to show the Payments and Subscription functionality, you need to include at least one
-offer ID (either this or the yearly offer property). 
-The application uses this ID to map to an offer that you've configured in your Cleeng environment under Offers to 
-represent your monthly subscription. 
+offer ID (either this or the yearly offer property).
+The application uses this ID to map to an offer that you've configured in your Cleeng environment under Offers to
+represent your monthly subscription.
 Note that only the data used from the Cleeng offer is the price, the free days, and the free period,
-and the app does not verify if the offer length is actually monthly. 
+and the app does not verify if the offer length is actually monthly.
 If no monthly or yearly offer is configured, the Payments section will not be shown.
 
 ---
