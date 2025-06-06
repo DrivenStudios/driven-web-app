@@ -6,18 +6,18 @@ import Footer from './Footer';
 
 describe('<Footer>', () => {
   test('renders and matches snapshot', () => {
-    const { container } = render(<Footer text="Simple" />);
+    const { container } = render(<Footer />);
 
     expect(container).toMatchSnapshot();
   });
   test('renders and matches snapshot without links', () => {
-    const { container } = render(<Footer text="Text one | Text two" />);
+    const { container } = render(<Footer />);
 
     expect(container).toMatchSnapshot();
   });
 
   test('renders and matches snapshot with two links', () => {
-    const { container } = render(<Footer text="Two links | [jwplayer.com](https://www.jwplayer.com/) | [jwplayer.com](https://www.jwplayer.com/)" />);
+    const { container } = render(<Footer />);
 
     expect(container).toMatchSnapshot();
   });
@@ -26,9 +26,9 @@ describe('<Footer>', () => {
     const { container } = render(
       <>
         <h2>Without links</h2>
-        <Footer text="Text one | Text two" />
+        <Footer />
         <h2>With links</h2>
-        <Footer text="Two links | [jwplayer.com](https://www.jwplayer.com/) | [jwplayer.com](https://www.jwplayer.com/)" />
+        <Footer />
       </>,
     );
 

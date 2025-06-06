@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router';
 import { shallow } from '@jwp/ott-common/src/utils/compare';
 import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
-import { unicodeToChar } from '@jwp/ott-common/src/utils/common';
 import { determinePath } from '@jwp/ott-common/src/utils/urlFormatting';
-import env from '@jwp/ott-common/src/env';
 import { useUIStore } from '@jwp/ott-common/src/stores/UIStore';
 import { useTranslationKey } from '@jwp/ott-hooks-react/src/useTranslationKey';
 
@@ -36,9 +34,7 @@ const Layout = () => {
     }),
     shallow,
   );
-  const { menu, assets, siteName, styling } = config;
-  const { footerText: configFooterText } = styling || {};
-  const footerText = configFooterText || unicodeToChar(env.APP_FOOTER_TEXT);
+  const { menu, assets, siteName } = config;
 
   const { sideBarOpen, searchActive, cookieWallOpen } = useUIStore((state) => ({
     sideBarOpen: state.sideBarOpen,
@@ -77,7 +73,7 @@ const Layout = () => {
         <main id="content" className={styles.main} tabIndex={-1}>
           <Outlet />
         </main>
-        {!!footerText && <Footer text={footerText} />}
+        <Footer />
       </div>
       <SidebarContainer />
     </div>
