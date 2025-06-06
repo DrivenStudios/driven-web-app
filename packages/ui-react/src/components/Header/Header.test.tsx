@@ -46,7 +46,7 @@ describe('<Header />', () => {
       <Header searchActive={false}>
         <HeaderSkipLink />
         <HeaderMenu onClick={vi.fn()} sideBarOpen={false} />
-        <HeaderBrand logoSrc="/logo.png" setLogoLoaded={vi.fn()} siteName="OTT Web App" />
+        <HeaderBrand logoSrc="/images/driven-logo.png" setLogoLoaded={vi.fn()} siteName="Driven Web App" />
         <HeaderNavigation navItems={navItems} />
         <HeaderActions>
           <HeaderActionButton>
@@ -68,7 +68,7 @@ describe('<Header />', () => {
       <Header searchActive={false}>
         <HeaderSkipLink />
         <HeaderMenu onClick={vi.fn()} sideBarOpen={false} />
-        <HeaderBrand logoSrc="/logo.png" setLogoLoaded={vi.fn()} siteName="OTT Web App" />
+        <HeaderBrand logoSrc="/images/driven-logo.png" setLogoLoaded={vi.fn()} siteName="Driven Web App" />
         <HeaderNavigation navItems={navItems} />
         <HeaderActions>
           <HeaderActionButton>

@@ -37,7 +37,7 @@ export const ErrorPageWithoutTranslation = ({ title, children, message, learnMor
   return (
     <div className={styles.errorPage}>
       <div className={styles.box}>
-        <img className={styles.image} src={logo || '/images/logo.png'} alt={alt} />
+        <img className={styles.image} src={logo || '/images/driven-logo.png'} alt={alt} />
         <h1 className={styles.title} aria-live="polite">
           {title || 'An error occurred'}
         </h1>
