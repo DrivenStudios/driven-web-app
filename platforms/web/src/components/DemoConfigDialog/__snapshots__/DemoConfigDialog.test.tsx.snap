@@ -34,7 +34,7 @@ exports[`<DemoConfigDialog> > renders and matches snapshot error dialog 1`] = `
         <img
           alt=""
           class="_image_d73633"
-          src="/images/logo.png"
+          src="/images/driven-logo.png"
         />
         <h1
           aria-live="polite"

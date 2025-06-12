@@ -22,7 +22,7 @@ export default class ConfigService {
     description: '',
     siteId: '',
     assets: {
-      banner: '/images/logo.png',
+      banner: '/images/driven-logo.png',
     },
     content: [],
     menu: [],
