@@ -7,7 +7,7 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Deploy to Amazon ECS
+name: Deploy to Test Cluster
 
 on:
   push:
@@ -19,7 +19,7 @@ env:
   ECR_REPOSITORY: driven-studios/driven-web-app
   ECS_SERVICE: WebPlayerService
   ECS_CLUSTER: DrivenStudiosTestCluster
-  ECS_TASK_DEFINITION: .aws/task-definition.json
+  ECS_TASK_DEFINITION: .aws/test/task-definition.json
   CONTAINER_NAME: DrivenWebAppContainer
   PROPERTY_ID: fjydj7mi
 jobs:
