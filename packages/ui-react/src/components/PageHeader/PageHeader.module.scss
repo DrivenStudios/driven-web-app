@@ -58,6 +58,11 @@
 
 .pageLogo {
   width: 100%;
+
+  @include responsive.mobile-and-tablet {
+    width: 80%;
+    margin: auto;
+  }
 }
 
 .meta {
