@@ -5,6 +5,7 @@ import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { useTranslation } from 'react-i18next';
 
 import ShelfList from '../../containers/ShelfList/ShelfList';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 const Home = () => {
   const { config } = useConfigStore(({ config, accessModel }) => ({ config, accessModel }), shallow);
@@ -13,6 +14,13 @@ const Home = () => {
 
   return (
     <>
+      <PageHeader
+        pageType="home"
+        title="Home"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        image="/images/home_logo.webp"
+        meta="PG • Competition • 2025"
+      />
       <h1 className="hideUntilFocus">{t('home')}</h1>
       <ShelfList rows={content} />
     </>
