@@ -7,12 +7,11 @@ import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { filterPlaylist, getFiltersFromConfig } from '@jwp/ott-common/src/utils/collection';
 import { mediaURL } from '@jwp/ott-common/src/utils/urlFormatting';
 import { useTranslationKey } from '@jwp/ott-hooks-react/src/useTranslationKey';
-import Share from '@jwp/ott-theme/assets/icons/share.svg?react';
 
 import type { ScreenComponent } from '../../../../../types/screens';
 import CardGrid from '../../../../components/CardGrid/CardGrid';
 import Filter from '../../../../components/Filter/Filter';
-import Icon from '../../../../components/Icon/Icon';
+import PageHeader from '../../../../components/PageHeader/PageHeader';
 
 import styles from './PlaylistGrid.module.scss';
 
@@ -51,25 +50,12 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
         <meta property="og:title" content={pageTitle} />
         <meta name="twitter:title" content={pageTitle} />
       </Helmet>
-      <div className={styles.seriesHeader}>
-        <div className={styles.seriesContent}>
-          <img className={styles.seriesLogo} src="/images/aao.webp" alt="Against All Odds" />
-          <p className={styles.meta}>
-            PG • Series • 2025{' '}
-            <span className={styles.share}>
-              <Icon icon={Share} />
-              SHARE
-            </span>
-          </p>
-          <p className={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <div className={styles.actions}>
-            <button className={styles.play}>PLAY ALL</button>
-            <button className={styles.info}>MORE INFO</button>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        title="Against All Odds"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        image="/images/aao.webp"
+        meta="PG • Series • 2025"
+      />
       <div className={styles.playlist}>
         <header className={styles.header}>
           <h1>{title === 'Series' ? 'Episodes' : title}</h1>
