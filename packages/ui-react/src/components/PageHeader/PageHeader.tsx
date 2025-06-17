@@ -1,3 +1,5 @@
+import React from 'react';
+import classNames from 'classnames';
 import Share from '@jwp/ott-theme/assets/icons/share.svg?react';
 
 import Icon from '../Icon/Icon';
@@ -5,17 +7,18 @@ import Icon from '../Icon/Icon';
 import styles from './PageHeader.module.scss';
 
 type Props = {
+  pageType: 'home' | 'series' | 'movie';
   title: string;
   description: string;
   image: string;
   meta: string;
 };
 
-const PageHeader = ({ title, description, image, meta }: Props) => {
+const PageHeader = ({ pageType, title, description, image, meta }: Props) => {
   return (
-    <div className={styles.seriesHeader}>
-      <div className={styles.seriesContent}>
-        <img className={styles.seriesLogo} src={image} alt={title} />
+    <div className={classNames(styles.pageHeader, styles[pageType])}>
+      <div className={styles.pageContent}>
+        <img className={styles.pageLogo} src={image} alt={title} />
         <p className={styles.meta}>
           {meta}
           <span className={styles.share}>

@@ -34,6 +34,10 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
   }, [data.feedid]);
 
   const title = (data?.[translationKey] as string) || data.title;
+  const headerTitle = title === 'Series' ? 'Episodes' : title;
+  const pageType = title === 'Series' ? 'series' : 'movie';
+  const pageImage = title === 'Series' ? '/images/series_logo.webp' : '/images/movie_logo.webp';
+  const meta = title === 'Series' ? 'PG • Series • 2025' : 'PG • Documentary • 2025';
   const pageTitle = `${title} - ${config.siteName}`;
 
   const getUrl = (playlistItem: PlaylistItem) =>
@@ -51,10 +55,11 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
         <meta name="twitter:title" content={pageTitle} />
       </Helmet>
       <PageHeader
-        title="Against All Odds"
+        pageType={pageType}
+        title={headerTitle}
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        image="/images/aao.webp"
-        meta="PG • Series • 2025"
+        image={pageImage}
+        meta={meta}
       />
       <div className={styles.playlist}>
         <header className={styles.header}>

@@ -2,7 +2,7 @@
 @use '@jwp/ott-ui-react/src/styles/theme';
 @use '@jwp/ott-ui-react/src/styles/mixins/responsive';
 
-.seriesHeader {
+.pageHeader {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -11,7 +11,7 @@
   margin-bottom: calc(variables.$base-spacing * 3);
   padding: 0 calc(#{variables.$base-spacing} * 3);
   padding-top: 30vh;
-  background-image: url('/images/aao-bg.webp');
+  background-image: url('/images/home_bg.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -35,7 +35,15 @@
   }
 }
 
-.seriesContent {
+.pageHeader.movie {
+  background-image: url('/images/movie_bg.webp');
+}
+
+.pageHeader.series {
+  background-image: url('/images/series_bg.webp');
+}
+
+.pageContent {
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -48,7 +56,7 @@
   }
 }
 
-.seriesLogo {
+.pageLogo {
   width: 100%;
 }
 
