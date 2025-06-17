@@ -15,7 +15,7 @@ export type HeaderProps = {
   searchActive: boolean;
 };
 
-const Header = ({ children, className, headerType = 'static', searchActive }: PropsWithChildren<HeaderProps>) => {
+const Header = ({ children, className, headerType = 'fixed', searchActive }: PropsWithChildren<HeaderProps>) => {
   const headerClassName = classNames(styles.header, styles[headerType], className, {
     [styles.searchActive]: searchActive,
   });

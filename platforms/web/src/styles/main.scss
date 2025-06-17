@@ -29,6 +29,13 @@
   --safe-area-bottom: 0px;
   --safe-area-left: 0px;
   /* stylelint-enable length-zero-no-unit */
+
+  --col-primary-white: #ffffff;
+  --col-primary-light-blue: #19c3ee;
+  --col-primary-blue: #1d48d2;
+  --col-primary-grey: #555555;
+  --col-primary-dark-grey: #10141a;
+  --col-primary-black: #000000;
 }
 
 @include accessibility.globalClassNames;

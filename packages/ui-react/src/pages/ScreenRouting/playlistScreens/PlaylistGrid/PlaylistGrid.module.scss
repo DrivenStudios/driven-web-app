@@ -4,7 +4,7 @@
 
 .playlist {
   margin: 0 calc(#{variables.$base-spacing} * 3);
-  font-family: var(--body-alt-font-family);
+  margin-top: -1vh;
   text-align: center;
 
   @include responsive.mobile-only() {
@@ -21,14 +21,142 @@
   align-items: center;
   height: 36px;
   margin: calc(variables.$base-spacing * 3) 0;
+  font-style: italic;
+  text-transform: uppercase;
 
   > h1 {
-    font-family: var(--body-alt-font-family);
-    font-weight: var(--body-font-weight-bold);
+    font-family: var(--font-record-lazer);
+    font-weight: var(--font-weight-medium);
     font-size: 24px;
   }
 
   @include responsive.mobile-and-tablet {
     justify-content: space-between;
   }
+}
+
+.seriesHeader {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 101vh;
+  margin-bottom: calc(variables.$base-spacing * 3);
+  padding: 0 calc(#{variables.$base-spacing} * 3);
+  padding-top: 30vh;
+  background-image: url('/images/aao-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid var(--col-primary-black);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 20%, transparent 60%, rgba(0, 0, 0, 1) 100%),
+      linear-gradient(to right, rgba(0, 0, 0, 1) 0%, transparent 40%, transparent 80%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none;
+    content: '';
+  }
+
+  @include responsive.mobile-and-tablet {
+    padding: 0 variables.$base-spacing;
+    padding-top: 30vh;
+  }
+}
+
+.seriesContent {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 40%;
+  gap: 1.5rem;
+
+  @include responsive.mobile-and-tablet {
+    max-width: 100%;
+  }
+}
+
+.seriesLogo {
+  width: 100%;
+}
+
+.meta {
+  display: flex;
+  margin: 0 calc(#{variables.$base-spacing} * 3);
+  color: var(--col-primary-white);
+  font-size: 1rem;
+  opacity: 0.85;
+
+  .share {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 16px;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.7;
+    gap: 0.5rem;
+  }
+
+  @include responsive.mobile-and-tablet {
+    margin: auto;
+  }
+}
+
+.description {
+  margin: 0 calc(#{variables.$base-spacing} * 3);
+  color: var(--col-primary-white);
+  font-size: 1.1rem;
+  opacity: 0.9;
+
+  @include responsive.mobile-and-tablet {
+    margin: 0 calc(#{variables.$base-spacing});
+    font-size: 1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin: 0 calc(#{variables.$base-spacing} * 3);
+
+  @include responsive.mobile-and-tablet {
+    margin: auto;
+  }
+}
+
+.play,
+.info {
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-record-lazer);
+  font-weight: 700;
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  @include responsive.mobile-and-tablet {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+.play {
+  color: var(--col-primary-white);
+  background: var(--col-primary-blue);
+}
+
+.info {
+  color: var(--col-primary-white);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--col-primary-white);
 }

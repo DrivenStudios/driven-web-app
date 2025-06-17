@@ -12,7 +12,7 @@
   height: variables.$header-height;
   padding: 0 calc(variables.$base-spacing * 3);
   color: var(--header-contrast-color, --body-color, variables.$white);
-  background: var(--header-background, transparent);
+  background: transparent;
 
   //
   // Make header fixed
