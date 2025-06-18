@@ -122,7 +122,7 @@ function Card({
       tabIndex={disabled ? -1 : tabIndex}
       data-testid={testId(title)}
     >
-      {!featured && renderHeading()}
+      {/* {!featured && renderHeading()} */}
       <div className={posterClassNames}>
         <Image className={styles.posterImage} image={image} width={featured ? 640 : 320} alt="" />
         {!loading && (
