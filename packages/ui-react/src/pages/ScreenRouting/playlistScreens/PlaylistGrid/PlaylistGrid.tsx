@@ -34,7 +34,6 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
   }, [data.feedid]);
 
   const title = (data?.[translationKey] as string) || data.title;
-  const headerTitle = title === 'Series' ? 'Episodes' : title;
   const pageType = title === 'Series' ? 'series' : 'movie';
   const pageImage = title === 'Series' ? '/images/series_logo.webp' : '/images/movie_logo.webp';
   const meta = title === 'Series' ? 'PG • Series • 2025' : 'PG • Documentary • 2025';
@@ -56,14 +55,14 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
       </Helmet>
       <PageHeader
         pageType={pageType}
-        title={headerTitle}
+        title={title}
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         image={pageImage}
         meta={meta}
       />
       <div className={styles.playlist}>
         <header className={styles.header}>
-          <h1>{title === 'Series' ? 'Episodes' : title}</h1>
+          <h1>{title}</h1>
           {shouldShowFilter && <Filter name="genre" value={filter} defaultLabel="All" options={categories} setValue={setFilter} />}
         </header>
         <CardGrid

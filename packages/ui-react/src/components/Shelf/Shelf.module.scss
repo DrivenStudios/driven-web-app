@@ -27,10 +27,12 @@
   min-height: 28px;
   margin-bottom: variables.$base-spacing;
   overflow: hidden;
-  font-family: var(--body-alt-font-family);
-  font-weight: var(--body-font-weight-bold);
-  font-size: 24px;
+  font-family: var(--font-record-lazer);
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-style: italic;
   white-space: nowrap;
+  text-transform: uppercase;
   text-overflow: ellipsis;
 
   @include responsive.mobile-only() {
