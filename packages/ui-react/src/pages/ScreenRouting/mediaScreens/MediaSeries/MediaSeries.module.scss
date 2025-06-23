@@ -1,0 +1,16 @@
+@use '@jwp/ott-ui-react/src/styles/variables';
+@use '@jwp/ott-ui-react/src/styles/theme';
+@use '@jwp/ott-ui-react/src/styles/mixins/responsive';
+
+.shelfContainer {
+  position: relative;
+  padding: calc(variables.$base-spacing * 2) calc(variables.$base-spacing * 3);
+
+  @include responsive.mobile-only() {
+    padding: 8px 60px 8px variables.$base-spacing;
+  }
+
+  @include responsive.tablet-only() {
+    padding: 24px calc(#{variables.$base-spacing} * 2);
+  }
+}
