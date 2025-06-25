@@ -28,6 +28,7 @@ import Button from '../../../../components/Button/Button';
 import InlinePlayer from '../../../../containers/InlinePlayer/InlinePlayer';
 import Icon from '../../../../components/Icon/Icon';
 import VideoMetaData from '../../../../components/VideoMetaData/VideoMetaData';
+import MoreLikePlaylist from '../../../../components/MoreLikePlaylist/MoreLikePlaylist';
 
 const MediaMovie: ScreenComponent<PlaylistItem> = ({ data, isLoading }) => {
   const { t } = useTranslation('video');
@@ -183,6 +184,7 @@ const MediaMovie: ScreenComponent<PlaylistItem> = ({ data, isLoading }) => {
         }
       />
       <TrailerModal item={trailerItem} title={`${data.title} - Trailer`} open={playTrailer} onClose={() => setPlayTrailer(false)} />
+      <MoreLikePlaylist feedId={feedId} selectedItemTitle={data.title} accessModel={accessModel} user={user} subscription={subscription} />
     </React.Fragment>
   );
 };

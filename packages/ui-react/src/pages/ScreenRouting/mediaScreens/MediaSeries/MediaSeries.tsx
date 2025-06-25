@@ -39,6 +39,7 @@ import Loading from '../../../Loading/Loading';
 import Icon from '../../../../components/Icon/Icon';
 import VideoMetaData from '../../../../components/VideoMetaData/VideoMetaData';
 import { createURLFromLocation } from '../../../../utils/location';
+import MoreLikePlaylist from '../../../../components/MoreLikePlaylist/MoreLikePlaylist';
 
 const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
   const breakpoint = useBreakpoint();
@@ -61,6 +62,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
 
   // Whether we show series or episode information
   const selectedItem = (episode || seriesMedia) as PlaylistItem;
+  const selectedItemTitle = selectedItem.title;
 
   // Config
   const { config, accessModel } = useConfigStore(({ config, accessModel }) => ({ config, accessModel }), shallow);
@@ -315,6 +317,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
         }
       />
       {episode && <TrailerModal item={trailerItem} title={`${episode.title} - Trailer`} open={playTrailer} onClose={() => setPlayTrailer(false)} />}
+      <MoreLikePlaylist feedId={feedId} selectedItemTitle={selectedItemTitle} accessModel={accessModel} user={user} subscription={subscription} />
     </React.Fragment>
   );
 };
