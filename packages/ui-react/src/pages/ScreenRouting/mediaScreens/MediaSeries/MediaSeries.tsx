@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { shallow } from '@jwp/ott-common/src/utils/compare';
 import { useSearchParams } from 'react-router-dom';
-import type { Playlist, PlaylistItem } from '@jwp/ott-common/types/playlist';
+import type { PlaylistItem } from '@jwp/ott-common/types/playlist';
 import { useWatchHistoryStore } from '@jwp/ott-common/src/stores/WatchHistoryStore';
 import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
@@ -13,7 +13,7 @@ import { getEpisodesInSeason, getFiltersFromSeries } from '@jwp/ott-common/src/u
 import { createVideoMetadata } from '@jwp/ott-common/src/utils/metadata';
 import { formatSeriesMetaString } from '@jwp/ott-common/src/utils/formatting';
 import { buildLegacySeriesUrlFromMediaItem, mediaURL } from '@jwp/ott-common/src/utils/urlFormatting';
-import { APP_CONFIG_ITEM_TYPE, VideoProgressMinMax } from '@jwp/ott-common/src/constants';
+import { VideoProgressMinMax } from '@jwp/ott-common/src/constants';
 import useEntitlement from '@jwp/ott-hooks-react/src/useEntitlement';
 import useMedia from '@jwp/ott-hooks-react/src/useMedia';
 import { useSeries } from '@jwp/ott-hooks-react/src/series/useSeries';
@@ -23,7 +23,6 @@ import { useNextEpisode } from '@jwp/ott-hooks-react/src/series/useNextEpisode';
 import PlayTrailer from '@jwp/ott-theme/assets/icons/play_trailer.svg?react';
 import useBreakpoint, { Breakpoint } from '@jwp/ott-ui-react/src/hooks/useBreakpoint';
 import { useFirstEpisode } from '@jwp/ott-hooks-react/src/series/useFirstEpisode';
-import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
 import env from '@jwp/ott-common/src/env';
 
 import type { ScreenComponent } from '../../../../../types/screens';
@@ -40,10 +39,7 @@ import Loading from '../../../Loading/Loading';
 import Icon from '../../../../components/Icon/Icon';
 import VideoMetaData from '../../../../components/VideoMetaData/VideoMetaData';
 import { createURLFromLocation } from '../../../../utils/location';
-import Shelf from '../../../../components/Shelf/Shelf';
-import Fade from '../../../../components/Animation/Fade/Fade';
-
-import styles from './MediaSeries.module.scss';
+import MoreLikePlaylist from '../../../../components/MoreLikePlaylist/MoreLikePlaylist';
 
 const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
   const breakpoint = useBreakpoint();
@@ -67,13 +63,6 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
   // Whether we show series or episode information
   const selectedItem = (episode || seriesMedia) as PlaylistItem;
   const selectedItemTitle = selectedItem.title;
-
-  // More Like Playlists
-  const {
-    isFetching: isMoreLikePlaylistsFetching,
-    error: isMoreLikePlaylistsError,
-    data: moreLikePlaylists,
-  } = usePlaylist(feedId || '', { search: selectedItemTitle }, true, true, APP_CONFIG_ITEM_TYPE.playlist);
 
   // Config
   const { config, accessModel } = useConfigStore(({ config, accessModel }) => ({ config, accessModel }), shallow);
@@ -179,7 +168,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
 
   // UI
   const playEpisode = episode || firstEpisode;
-  const isLoading = isSeriesDataLoading || isSeriesDictionaryLoading || isEpisodeLoading || isFirstEpisodeLoading || isMoreLikePlaylistsFetching;
+  const isLoading = isSeriesDataLoading || isSeriesDictionaryLoading || isEpisodeLoading || isFirstEpisodeLoading;
 
   const startWatchingButton = useMemo(
     () =>
@@ -328,21 +317,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
         }
       />
       {episode && <TrailerModal item={trailerItem} title={`${episode.title} - Trailer`} open={playTrailer} onClose={() => setPlayTrailer(false)} />}
-      <section className={styles.shelfContainer} aria-label="More Like">
-        <Fade duration={250} delay={33} open>
-          <Shelf
-            loading={isMoreLikePlaylistsFetching}
-            error={isMoreLikePlaylistsError}
-            type={APP_CONFIG_ITEM_TYPE.playlist}
-            playlist={moreLikePlaylists as Playlist}
-            title={'More Like This'}
-            featured={false}
-            accessModel={accessModel}
-            isLoggedIn={!!user}
-            hasSubscription={!!subscription}
-          />
-        </Fade>
-      </section>
+      <MoreLikePlaylist feedId={feedId} selectedItemTitle={selectedItemTitle} accessModel={accessModel} user={user} subscription={subscription} />
     </React.Fragment>
   );
 };
