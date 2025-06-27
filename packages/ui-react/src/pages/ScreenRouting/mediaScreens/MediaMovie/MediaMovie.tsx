@@ -157,6 +157,7 @@ const MediaMovie: ScreenComponent<PlaylistItem> = ({ data, isLoading }) => {
         relatedTitle={playlist?.title}
         getURL={getUrl}
         activeLabel={t('current_video')}
+        pageType="movie"
         player={
           inlineLayout ? (
             <InlinePlayer

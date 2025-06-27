@@ -58,6 +58,7 @@ type Props = {
   children?: React.ReactNode;
   item?: PlaylistItem;
   playlist?: Playlist;
+  pageType?: string;
 } & FilterProps &
   VideoDetailsProps &
   VideoListProps &
@@ -97,6 +98,7 @@ const VideoLayout: React.FC<Props> = ({
   hasMore,
   loadMore,
   getURL,
+  pageType,
 }) => {
   const breakpoint = useBreakpoint();
   const isTablet = breakpoint === Breakpoint.sm || breakpoint === Breakpoint.md;
@@ -194,7 +196,7 @@ const VideoLayout: React.FC<Props> = ({
       primaryMetadata={primaryMetadata}
       secondaryMetadata={secondaryMetadata}
     >
-      {playlist && <section className={styles.relatedVideos}>{renderRelatedVideos(true)}</section>}
+      {playlist && pageType === 'series' && <section className={styles.relatedVideos}>{renderRelatedVideos(true)}</section>}
       {children}
       {player}
     </VideoDetails>
