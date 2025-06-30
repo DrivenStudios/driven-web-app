@@ -117,10 +117,21 @@ function Card({
     return (
       <div className={styles.cardContainer}>
         <div className={styles.imageWrapper}>
-          <Image className={styles.posterImage} image={image} width={320} alt="" />
-          <div className={styles.durationBadge}>
-            <span>60m</span>
-          </div>
+          <Link
+            role="button"
+            to={url}
+            className={cardClassName}
+            onClick={disabled ? (e) => e.preventDefault() : undefined}
+            onMouseEnter={onHover}
+            tabIndex={disabled ? -1 : tabIndex}
+            data-testid={testId(title)}
+          >
+            <Image className={styles.posterImage} image={image} width={320} alt="" />
+            <div className={styles.durationBadge}>
+              <span>60m</span>
+            </div>
+            {isCurrent && <div className={styles.currentLabel}>{currentLabel}</div>}
+          </Link>
         </div>
         <div className={styles.infoSection}>
           <div className={styles.title}>{title}</div>
