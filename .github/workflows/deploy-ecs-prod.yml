@@ -7,19 +7,19 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Deploy to Test Cluster
+name: Deploy to Prod Cluster
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: driven-studios/driven-web-app
-  ECS_SERVICE: DrivenWebAppService
-  ECS_CLUSTER: DrivenStudiosTestCluster
-  ECS_TASK_DEFINITION: .aws/test/task-definition.json
+  ECS_SERVICE: DrivenWebAppProdService
+  ECS_CLUSTER: DrivenStudiosProductionCluster
+  ECS_TASK_DEFINITION: .aws/prod/task-definition.json
   CONTAINER_NAME: DrivenWebAppContainer
   PROPERTY_ID: gwrpd0yt
 jobs:
