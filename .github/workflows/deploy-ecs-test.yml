@@ -21,7 +21,7 @@ env:
   ECS_CLUSTER: DrivenStudiosTestCluster
   ECS_TASK_DEFINITION: .aws/test/task-definition.json
   CONTAINER_NAME: DrivenWebAppContainer
-  PROPERTY_ID: fjydj7mi
+  PROPERTY_ID: gwrpd0yt
 jobs:
   deploy:
     name: Deploy
