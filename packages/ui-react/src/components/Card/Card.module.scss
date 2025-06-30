@@ -277,8 +277,8 @@ svg.scheduled {
 
   .durationBadge {
     position: absolute;
-    bottom: 16px;
-    left: 16px;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     padding: 4px 12px;
@@ -286,7 +286,7 @@ svg.scheduled {
     font-weight: bold;
     font-size: 1rem;
     background: var(--col-primary-blue);
-    border-radius: 8px;
+    border-radius: 0 0 0 8px;
   }
 
   .durationBadge svg {

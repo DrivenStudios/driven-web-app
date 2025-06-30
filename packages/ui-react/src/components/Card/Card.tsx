@@ -7,7 +7,9 @@ import { formatDurationTag, formatLocalizedDateTime, formatSeriesMetaString } fr
 import { isLiveChannel, isSeries } from '@jwp/ott-common/src/utils/media';
 import { isLiveEvent, MediaStatus } from '@jwp/ott-common/src/utils/liveEvent';
 import Lock from '@jwp/ott-theme/assets/icons/lock.svg?react';
+import PlayIcon from '@jwp/ott-theme/assets/icons/play.svg?react';
 import Today from '@jwp/ott-theme/assets/icons/today.svg?react';
+import Share from '@jwp/ott-theme/assets/icons/share.svg?react';
 import { testId } from '@jwp/ott-common/src/utils/common';
 import type { PosterAspectRatio } from '@jwp/ott-common/src/utils/collection';
 
@@ -128,7 +130,8 @@ function Card({
           >
             <Image className={styles.posterImage} image={image} width={320} alt="" />
             <div className={styles.durationBadge}>
-              <span>60m</span>
+              <Icon icon={PlayIcon} />
+              <span>{formatDurationTag(duration, { minutesAbbreviation: t('common:abbreviation.minutes') })}</span>
             </div>
             {isCurrent && <div className={styles.currentLabel}>{currentLabel}</div>}
           </Link>
@@ -146,6 +149,7 @@ function Card({
             <span className={styles.dot}>•</span>
             <span>2025</span>
             <a className={styles.share} href="#">
+              <Icon icon={Share} />
               SHARE
             </a>
           </div>
