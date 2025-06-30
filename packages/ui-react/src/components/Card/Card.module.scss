@@ -254,3 +254,96 @@ svg.scheduled {
   height: 5px;
   background-color: var(--primary-color);
 }
+
+.cardContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+  overflow: hidden;
+  // background: #111;
+  color: var(--col-primary-white);
+  border-radius: 12px;
+
+  .imageWrapper {
+    position: relative;
+    width: 20%;
+
+    .posterImage {
+      width: 100%;
+      height: 100%;
+      border-radius: 5%;
+    }
+  }
+
+  .durationBadge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    color: var(--col-primary-white);
+    font-weight: bold;
+    font-size: 1rem;
+    background: var(--col-primary-blue);
+    border-radius: 8px;
+  }
+
+  .durationBadge svg {
+    margin-right: 6px;
+  }
+
+  .infoSection {
+    flex: 1;
+    padding: 16px 24px;
+  }
+
+  .title {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .description {
+    display: -webkit-box;
+    margin-bottom: 8px;
+    overflow: hidden;
+    color: var(--col-primary-white);
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+
+  .moreInfo {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--col-primary-blue);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .metaRow {
+    display: flex;
+    align-items: center;
+    color: var(--col-primary-light-grey-2);
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+
+  .dot {
+    margin: 0 6px;
+  }
+
+  .share {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    color: var(--col-primary-white);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .share svg {
+    margin-right: 4px;
+  }
+}

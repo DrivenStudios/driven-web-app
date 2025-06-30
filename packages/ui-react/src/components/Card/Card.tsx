@@ -55,7 +55,7 @@ function Card({
   tabIndex = 0,
   hasSubtitle = false,
 }: CardProps): JSX.Element {
-  const { title, duration, episodeNumber, seasonNumber, cardImage: image, mediaStatus, scheduledStart } = item;
+  const { title, duration, episodeNumber, seasonNumber, cardImage: image, mediaStatus, scheduledStart, description } = item;
   const {
     t,
     i18n: { language },
@@ -80,10 +80,10 @@ function Card({
 
     if (isSeriesItem) {
       return <div className={styles.tag}>{t('video:series')}</div>;
-    } else if (episodeNumber) {
-      return <div className={styles.tag}>{formatSeriesMetaString(seasonNumber, episodeNumber)}</div>;
     } else if (duration) {
       return <div className={styles.tag}>{formatDurationTag(duration, { minutesAbbreviation: t('common:abbreviation.minutes') })}</div>;
+    } else if (episodeNumber) {
+      return <div className={styles.tag}>{formatSeriesMetaString(seasonNumber, episodeNumber)}</div>;
     } else if (isLive) {
       return <div className={classNames(styles.tag, styles.live)}>{t('live')}</div>;
     } else if (isScheduled) {
@@ -112,6 +112,37 @@ function Card({
       </div>
     );
   };
+
+  if (episodeNumber) {
+    return (
+      <div className={styles.cardContainer}>
+        <div className={styles.imageWrapper}>
+          <Image className={styles.posterImage} image={image} width={320} alt="" />
+          <div className={styles.durationBadge}>
+            <span>60m</span>
+          </div>
+        </div>
+        <div className={styles.infoSection}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.description}>{description}</div>
+          <a className={styles.moreInfo} href="#">
+            More info
+          </a>
+          <div className={styles.metaRow}>
+            <span>PG</span>
+            <span className={styles.dot}>•</span>
+            <span>Series</span>
+            <span className={styles.dot}>•</span>
+            <span>2025</span>
+            <a className={styles.share} href="#">
+              SHARE
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Link
       role="button"
