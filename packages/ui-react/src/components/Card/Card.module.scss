@@ -273,6 +273,9 @@ svg.scheduled {
       height: 100%;
       border-radius: 5%;
     }
+    @include responsive.mobile-and-tablet {
+      width: 100%;
+    }
   }
 
   .durationBadge {
@@ -296,6 +299,10 @@ svg.scheduled {
   .infoSection {
     flex: 1;
     padding: 16px 24px;
+
+    @include responsive.mobile-and-tablet {
+      padding: 16px 0;
+    }
   }
 
   .title {
@@ -345,5 +352,9 @@ svg.scheduled {
 
   .share svg {
     margin-right: 4px;
+  }
+
+  @include responsive.mobile-and-tablet {
+    flex-direction: column;
   }
 }
