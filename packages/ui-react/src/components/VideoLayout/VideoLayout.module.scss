@@ -116,18 +116,22 @@
 
 .relatedVideosGridTitle {
   margin-right: variables.$base-spacing;
-  font-family: var(--body-alt-font-family);
+  font-family: var(--font-record-lazer);
   font-weight: var(--body-font-weight-bold);
   font-size: 24px;
+  font-style: italic;
   line-height: variables.$base-line-height;
+  text-transform: uppercase;
   text-shadow: var(--body-text-shadow);
 }
 
 .relatedVideosListTitle {
-  font-family: var(--body-alt-font-family);
+  font-family: var(--font-record-lazer);
   font-weight: var(--body-font-weight-bold);
   font-size: 20px;
+  font-style: italic;
   line-height: variables.$base-line-height;
+  text-transform: uppercase;
   text-shadow: var(--body-text-shadow);
 }
 
