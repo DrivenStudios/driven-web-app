@@ -1,6 +1,15 @@
 @use '@jwp/ott-ui-react/src/styles/variables';
 @use '@jwp/ott-ui-react/src/styles/mixins/responsive';
 
+.shelfList {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.shelfOverflow {
+  overflow: hidden;
+}
+
 .shelfContainer {
   position: relative;
   padding: calc(variables.$base-spacing * 2) calc(variables.$base-spacing * 3);

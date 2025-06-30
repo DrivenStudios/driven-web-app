@@ -1,6 +1,7 @@
 import { throttle } from '@jwp/ott-common/src/utils/common';
 import useEventCallback from '@jwp/ott-hooks-react/src/useEventCallback';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import styles from './LayoutGrid.module.scss';
 
@@ -18,6 +19,8 @@ const scrollIntoViewThrottled = throttle(function (focusedElement: HTMLElement) 
 
 // Keyboard-accessible grid layout, with focus management
 const LayoutGrid = <Item extends object>({ className, columnCount, data, renderCell, getCellKey }: Props<Item>) => {
+  const location = useLocation();
+  const pageType = location.pathname.split('/')[1];
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
   const [currentColumnIndex, setCurrentColumnIndex] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -112,11 +115,12 @@ const LayoutGrid = <Item extends object>({ className, columnCount, data, renderC
   }, [columnCount]);
 
   const gridCellStyle = useMemo(() => ({ width: `${Math.floor((100 / columnCount) * 100) / 100}%` }), [columnCount]);
+  const episodeCellStyle = { width: '100%' };
 
   return (
     <div role="grid" ref={gridRef} aria-rowcount={rowCount} className={className} onKeyDown={handleKeyDown}>
       {Array.from({ length: rowCount }).map((_, rowIndex) => (
-        <div role="row" key={rowIndex} aria-rowindex={rowIndex + 1} className={styles.row}>
+        <div role="row" key={rowIndex} aria-rowindex={rowIndex + 1} className={pageType === 'm' ? styles.column : styles.row}>
           {data.slice(rowIndex * columnCount, rowIndex * columnCount + columnCount).map((item, columnIndex) => (
             <div
               role="gridcell"
@@ -124,7 +128,7 @@ const LayoutGrid = <Item extends object>({ className, columnCount, data, renderC
               key={getCellKey(item)}
               aria-colindex={columnIndex + 1}
               className={styles.cell}
-              style={gridCellStyle}
+              style={pageType === 'm' ? episodeCellStyle : gridCellStyle}
             >
               {renderCell(item, currentRowIndex === rowIndex && currentColumnIndex === columnIndex ? 0 : -1)}
             </div>

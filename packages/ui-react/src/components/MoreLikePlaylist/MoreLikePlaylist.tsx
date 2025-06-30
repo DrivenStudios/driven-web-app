@@ -27,21 +27,25 @@ const MoreLikePlaylist = ({ feedId, selectedItemTitle, accessModel, user, subscr
   } = usePlaylist(feedId || '', { search: selectedItemTitle }, true, true, APP_CONFIG_ITEM_TYPE.playlist);
 
   return (
-    <section className={styles.shelfContainer} aria-label="More Like">
-      <Fade duration={250} delay={33} open>
-        <Shelf
-          loading={isMoreLikePlaylistsFetching}
-          error={isMoreLikePlaylistsError}
-          type={APP_CONFIG_ITEM_TYPE.playlist}
-          playlist={moreLikePlaylists as Playlist}
-          title={'More Like This'}
-          featured={false}
-          accessModel={accessModel}
-          isLoggedIn={!!user}
-          hasSubscription={!!subscription}
-        />
-      </Fade>
-    </section>
+    <div className={styles.shelfList}>
+      <div className={styles.shelfOverflow}>
+        <section className={styles.shelfContainer} aria-label="More Like">
+          <Fade duration={250} delay={33} open>
+            <Shelf
+              loading={isMoreLikePlaylistsFetching}
+              error={isMoreLikePlaylistsError}
+              type={APP_CONFIG_ITEM_TYPE.playlist}
+              playlist={moreLikePlaylists as Playlist}
+              title={'More Like This'}
+              featured={false}
+              accessModel={accessModel}
+              isLoggedIn={!!user}
+              hasSubscription={!!subscription}
+            />
+          </Fade>
+        </section>
+      </div>
+    </div>
   );
 };
 
