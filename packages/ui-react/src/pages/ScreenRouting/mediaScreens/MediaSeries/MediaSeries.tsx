@@ -287,6 +287,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
         filters={filters}
         hasMore={hasNextEpisodesPage}
         loadMore={fetchNextEpisodes}
+        pageType="series"
         player={
           inlineLayout ? (
             <InlinePlayer
