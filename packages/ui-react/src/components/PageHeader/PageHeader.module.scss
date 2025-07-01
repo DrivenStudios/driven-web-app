@@ -7,11 +7,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 101vh;
+  height: 100vh;
   margin-bottom: calc(variables.$base-spacing * 3);
   padding: 0 calc(#{variables.$base-spacing} * 3);
   padding-top: 30vh;
-  background-image: url('/images/home_bg.webp');
+  background-image: url('https://img.jwplayer.com/v1/images/HZqL4UCw.jpg?width=3840');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -40,7 +40,7 @@
 }
 
 .pageHeader.series {
-  background-image: url('/images/series_bg.webp');
+  background-image: url('https://img.jwplayer.com/v1/images/HZqL4UCw.jpg?width=3840');
 }
 
 .pageContent {
@@ -57,8 +57,8 @@
 }
 
 .pageLogo {
-  width: 100%;
-
+  width: 50%;
+  margin: 0 calc(#{variables.$base-spacing} * 3);
   @include responsive.mobile-and-tablet {
     width: 80%;
     margin: auto;

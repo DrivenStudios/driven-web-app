@@ -17,8 +17,8 @@ const Home = () => {
       <PageHeader
         pageType="home"
         title="Home"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        image="/images/home_logo.webp"
+        description="Follow world-renowned engine maestro Tom Nelson as he builds one-of-a-kind cars (including two hero cars from The Fast and the Furious and the fastest production car earth) for a wide range of clients—at a level of artistry and engineering never seen on television."
+        image="https://cdn.jwplayer.com/v2/images/hALQI5Ba.png?width=720"
         meta="PG • Competition • 2025"
       />
       <h1 className="hideUntilFocus">{t('home')}</h1>

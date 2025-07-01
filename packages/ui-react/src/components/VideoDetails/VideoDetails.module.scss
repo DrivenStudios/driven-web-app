@@ -3,6 +3,13 @@
 @use '@jwp/ott-ui-react/src/styles/mixins/responsive';
 @use '@jwp/ott-ui-react/src/styles/mixins/typography';
 
+.videoDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .videoDetails {
   font-family: var(--body-font-family), sans-serif;
 }

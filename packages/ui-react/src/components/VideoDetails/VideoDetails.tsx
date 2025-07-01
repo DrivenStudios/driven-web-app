@@ -35,8 +35,8 @@ const VideoDetails = ({
   logo,
 }: Props) => {
   return (
-    <div data-testid={testId('cinema-layout')}>
-      <header className={styles.videoDetails} data-testid={testId('video-details')} id="video-details">
+    <div className={styles.videoDetailsContainer} data-testid={testId('cinema-layout')}>
+      <div className={styles.videoDetails} data-testid={testId('video-details')} id="video-details">
         <Hero image={image} mediaId={mediaId}>
           <div className={styles.logo}>
             <Image image={logo} width={1280} alt="logo" />
@@ -54,7 +54,7 @@ const VideoDetails = ({
             {shareButton}
           </div>
         </Hero>
-      </header>
+      </div>
       {children}
     </div>
   );

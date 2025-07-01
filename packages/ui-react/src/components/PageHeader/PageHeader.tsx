@@ -28,8 +28,12 @@ const PageHeader = ({ pageType, title, description, image, meta }: Props) => {
         </p>
         <p className={styles.description}>{description}</p>
         <div className={styles.actions}>
-          <button className={styles.play}>PLAY ALL</button>
-          <button className={styles.info}>MORE INFO</button>
+          <a href="/m/bDKL62yp/art-of-speed?r=DFYjG1Fc">
+            <button className={styles.play}>PLAY ALL</button>
+          </a>
+          <a href="/m/bDKL62yp/art-of-speed?r=DFYjG1Fc">
+            <button className={styles.info}>MORE INFO</button>
+          </a>
         </div>
       </div>
     </div>

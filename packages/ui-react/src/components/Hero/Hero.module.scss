@@ -8,8 +8,8 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 .hero {
   display: flex;
   max-width: 100vw;
-  height: 60vh;
-  max-height: $max-height;
+  //height: 60vh;
+  //max-height: $max-height;
   padding: calc(variables.$base-spacing * 3) calc(variables.$base-spacing * 3) calc(variables.$base-spacing * 2);
   font-family: var(--body-font-family), sans-serif;
   text-shadow: var(--body-text-shadow);
@@ -17,9 +17,10 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 
 .info {
   position: relative;
-  align-self: flex-end;
-  width: 50%;
+  //width: 50%;
   max-width: 650px;
+  //align-self: flex-end;
+  margin-top: 20%;
 }
 
 .title {
