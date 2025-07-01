@@ -7,7 +7,9 @@ import { formatDurationTag, formatLocalizedDateTime, formatSeriesMetaString } fr
 import { isLiveChannel, isSeries } from '@jwp/ott-common/src/utils/media';
 import { isLiveEvent, MediaStatus } from '@jwp/ott-common/src/utils/liveEvent';
 import Lock from '@jwp/ott-theme/assets/icons/lock.svg?react';
+import PlayIcon from '@jwp/ott-theme/assets/icons/play.svg?react';
 import Today from '@jwp/ott-theme/assets/icons/today.svg?react';
+import Share from '@jwp/ott-theme/assets/icons/share.svg?react';
 import { testId } from '@jwp/ott-common/src/utils/common';
 import type { PosterAspectRatio } from '@jwp/ott-common/src/utils/collection';
 
@@ -55,7 +57,7 @@ function Card({
   tabIndex = 0,
   hasSubtitle = false,
 }: CardProps): JSX.Element {
-  const { title, duration, episodeNumber, seasonNumber, cardImage: image, mediaStatus, scheduledStart } = item;
+  const { title, duration, episodeNumber, seasonNumber, cardImage: image, mediaStatus, scheduledStart, description } = item;
   const {
     t,
     i18n: { language },
@@ -79,10 +81,10 @@ function Card({
 
     if (isSeriesItem) {
       return <div className={styles.tag}>{t('video:series')}</div>;
-    } else if (episodeNumber) {
-      return <div className={styles.tag}>{formatSeriesMetaString(seasonNumber, episodeNumber)}</div>;
     } else if (duration) {
       return <div className={styles.tag}>{formatDurationTag(duration, { minutesAbbreviation: t('common:abbreviation.minutes') })}</div>;
+    } else if (episodeNumber) {
+      return <div className={styles.tag}>{formatSeriesMetaString(seasonNumber, episodeNumber)}</div>;
     } else if (isLive) {
       return <div className={classNames(styles.tag, styles.live)}>{t('live')}</div>;
     } else if (isScheduled) {
@@ -111,6 +113,49 @@ function Card({
       </div>
     );
   };
+
+  if (episodeNumber) {
+    return (
+      <div className={styles.cardContainer}>
+        <div className={styles.imageWrapper}>
+          <Link
+            role="button"
+            to={url}
+            className={cardClassName}
+            onClick={disabled ? (e) => e.preventDefault() : undefined}
+            onMouseEnter={onHover}
+            tabIndex={disabled ? -1 : tabIndex}
+            data-testid={testId(title)}
+          >
+            <Image className={styles.posterImage} image={image} width={320} alt="" />
+            <div className={styles.durationBadge}>
+              <Icon icon={PlayIcon} />
+              <span>{formatDurationTag(duration, { minutesAbbreviation: t('common:abbreviation.minutes') })}</span>
+            </div>
+            {isCurrent && <div className={styles.currentLabel}>{currentLabel}</div>}
+          </Link>
+        </div>
+        <div className={styles.infoSection}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.description}>{description}</div>
+          <a className={styles.moreInfo} href="#">
+            More info
+          </a>
+          <div className={styles.metaRow}>
+            <span>PG</span>
+            <span className={styles.dot}>•</span>
+            <span>Series</span>
+            <span className={styles.dot}>•</span>
+            <span>2025</span>
+            <a className={styles.share} href="#">
+              <Icon icon={Share} />
+              SHARE
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Link
