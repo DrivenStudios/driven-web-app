@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import type { PlaylistItem } from '@jwp/ott-common/types/playlist';
-import { formatDurationTag, formatLocalizedDateTime, formatSeriesMetaString } from '@jwp/ott-common/src/utils/formatting';
-import { isLiveChannel, isSeries } from '@jwp/ott-common/src/utils/media';
-import { isLiveEvent, MediaStatus } from '@jwp/ott-common/src/utils/liveEvent';
+import { formatDurationTag, formatLocalizedDateTime /* formatSeriesMetaString */ } from '@jwp/ott-common/src/utils/formatting';
+//import { isLiveChannel, isSeries } from '@jwp/ott-common/src/utils/media';
+import { isLiveEvent /* MediaStatus */ } from '@jwp/ott-common/src/utils/liveEvent';
 import Lock from '@jwp/ott-theme/assets/icons/lock.svg?react';
 import PlayIcon from '@jwp/ott-theme/assets/icons/play.svg?react';
-import Today from '@jwp/ott-theme/assets/icons/today.svg?react';
+//import Today from '@jwp/ott-theme/assets/icons/today.svg?react';
 import Share from '@jwp/ott-theme/assets/icons/share.svg?react';
 import { testId } from '@jwp/ott-common/src/utils/common';
 import type { PosterAspectRatio } from '@jwp/ott-common/src/utils/collection';
@@ -57,7 +57,7 @@ function Card({
   tabIndex = 0,
   hasSubtitle = false,
 }: CardProps): JSX.Element {
-  const { title, duration, episodeNumber, seasonNumber, cardImage: image, mediaStatus, scheduledStart, description } = item;
+  const { title, duration, episodeNumber, /* seasonNumber ,*/ cardImage: image, /* mediaStatus, */ scheduledStart, description } = item;
   const {
     t,
     i18n: { language },
@@ -72,12 +72,13 @@ function Card({
     [styles.current]: isCurrent,
   });
 
-  const isSeriesItem = isSeries(item);
+  /*   const isSeriesItem = isSeries(item);
   const isLive = mediaStatus === MediaStatus.LIVE || isLiveChannel(item);
-  const isScheduled = mediaStatus === MediaStatus.SCHEDULED;
+  const isScheduled = mediaStatus === MediaStatus.SCHEDULED; */
 
   const renderTag = () => {
-    if (loading || !title) return null;
+    return null;
+    /* if (loading || !title) return null;
 
     if (isSeriesItem) {
       return <div className={styles.tag}>{t('video:series')}</div>;
@@ -94,7 +95,7 @@ function Card({
           {t('scheduled')}
         </div>
       );
-    }
+    } */
   };
 
   const renderHeading = () => {
