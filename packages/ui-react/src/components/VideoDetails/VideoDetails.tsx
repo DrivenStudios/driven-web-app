@@ -2,8 +2,8 @@ import React, { type PropsWithChildren } from 'react';
 import { testId } from '@jwp/ott-common/src/utils/common';
 
 import Hero from '../Hero/Hero';
-import HeroTitle from '../Hero/HeroTitle';
 import HeroDescription from '../Hero/HeroDescription';
+import Image from '../Image/Image';
 
 import styles from './VideoDetails.module.scss';
 
@@ -17,10 +17,11 @@ type Props = PropsWithChildren<{
   shareButton: React.ReactNode;
   favoriteButton?: React.ReactNode;
   trailerButton?: React.ReactNode;
+  mediaId?: string;
+  logo?: string;
 }>;
 
 const VideoDetails = ({
-  title,
   description,
   primaryMetadata,
   secondaryMetadata,
@@ -30,12 +31,17 @@ const VideoDetails = ({
   favoriteButton,
   trailerButton,
   children,
+  mediaId,
+  logo,
 }: Props) => {
   return (
     <div data-testid={testId('cinema-layout')}>
       <header className={styles.videoDetails} data-testid={testId('video-details')} id="video-details">
-        <Hero image={image}>
-          <HeroTitle title={title} />
+        <Hero image={image} mediaId={mediaId}>
+          <div className={styles.logo}>
+            <Image image={logo} width={1280} alt="logo" />
+          </div>
+
           <div className={styles.metaContainer}>
             <div className={styles.primaryMetadata}>{primaryMetadata}</div>
             {secondaryMetadata && <div className={styles.secondaryMetadata}>{secondaryMetadata}</div>}

@@ -9,7 +9,7 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   display: flex;
   max-width: 100vw;
   height: 60vh;
-  max-height: $max-height; 
+  max-height: $max-height;
   padding: calc(variables.$base-spacing * 3) calc(variables.$base-spacing * 3) calc(variables.$base-spacing * 2);
   font-family: var(--body-font-family), sans-serif;
   text-shadow: var(--body-text-shadow);
@@ -40,14 +40,14 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   top: 0;
   right: 0;
   z-index: -1;
-  width: 80vw;
-  height: calc(60vh + variables.$header-height + 40px);
+  width: 100vw;
+  height: 100vh;
   max-height: $max-height;
   object-fit: cover;
-  object-position: 30% 30%;
+  object-position: 0% 0%;
 
-  -webkit-mask-image: radial-gradient(123% 123% at 100% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-  mask-image: radial-gradient(123% 123% at 100% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+  //-webkit-mask-image: radial-gradient(123% 123% at 100% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 100%);
+  //mask-image: radial-gradient(123% 123% at 100% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 100%);
 }
 
 .posterFadeMenu {
@@ -68,7 +68,7 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   z-index: -1;
   height: calc(60vh + variables.$header-height + 40px);
   max-height: $max-height;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   -webkit-mask-image: linear-gradient(to bottom, var(--body-background-color, variables.$white) 85%, transparent 100%);
   mask-image: linear-gradient(to bottom, var(--body-background-color, variables.$white) 85%, transparent 100%);
 }
@@ -79,9 +79,9 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   right: 0;
   left: 0;
   z-index: -1;
-  height: calc(60vh + variables.$header-height + 40px);
+  height: 100vh;
   max-height: $max-height;
-  background: linear-gradient(to bottom, transparent 75%, var(--body-background-color, variables.$white) 100%);
+  background: linear-gradient(to bottom, transparent 50%, var(--body-background-color, variables.$white) 100%);
 }
 
 .posterFadeLeft {
@@ -89,8 +89,8 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   top: 0;
   right: 0;
   z-index: -1;
-  width: 80vw;
-  height: calc(60vh + variables.$header-height + 40px);
+  width: 100vw;
+  height: calc(100vh);
   max-height: $max-height;
   background: linear-gradient(to left, transparent 60%, var(--body-background-color, variables.$white) 98%);
 }
@@ -99,8 +99,11 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
   .hero {
     padding: calc(variables.$base-spacing * 2);
   }
-  
-  .hero, .poster, .posterBackground, .posterFadeBottom {
+
+  .hero,
+  .poster,
+  .posterBackground,
+  .posterFadeBottom {
     width: 100vw;
     height: 75vh;
     max-height: 75vw;
@@ -128,11 +131,14 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 }
 
 @include responsive.mobile-and-small-tablet() {
-  .hero, .poster, .posterBackground, .posterFadeBottom {
+  .hero,
+  .poster,
+  .posterBackground,
+  .posterFadeBottom {
     height: auto;
     max-height: 100%;
   }
-  
+
   .hero {
     min-height: 50vh;
     padding: variables.$base-spacing calc(variables.$base-spacing * 2);
@@ -161,7 +167,6 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
     display: none;
   }
 }
-
 
 @include responsive.mobile-only() {
   .hero {

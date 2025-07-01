@@ -59,6 +59,7 @@ type Props = {
   item?: PlaylistItem;
   playlist?: Playlist;
   pageType?: string;
+  logo?: string;
 } & FilterProps &
   VideoDetailsProps &
   VideoListProps &
@@ -99,6 +100,7 @@ const VideoLayout: React.FC<Props> = ({
   loadMore,
   getURL,
   pageType,
+  logo,
 }) => {
   const breakpoint = useBreakpoint();
   const isTablet = breakpoint === Breakpoint.sm || breakpoint === Breakpoint.md;
@@ -186,9 +188,11 @@ const VideoLayout: React.FC<Props> = ({
 
   return (
     <VideoDetails
+      logo={logo}
       title={title}
       description={description}
       image={image}
+      mediaId={item?.mediaid}
       startWatchingButton={startWatchingButton}
       favoriteButton={favoriteButton}
       trailerButton={trailerButton}

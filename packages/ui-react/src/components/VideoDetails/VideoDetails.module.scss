@@ -16,10 +16,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  color: theme.$meta-grey;
   font-size: 16px;
   line-height: variables.$base-line-height;
   letter-spacing: 0.15px;
-
   @include responsive.mobile-only() {
     font-size: 14px;
   }
@@ -43,22 +43,27 @@
   margin-bottom: 24px;
 }
 
+.logo {
+  width: 100%;
+  margin-bottom: 24px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .buttonBar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   gap: calc(variables.$base-spacing / 2);
   width: 100%;
-  max-width: 400px;
 
   > button {
     flex: 1;
     justify-content: center;
-
-    &:first-child {
-      flex-basis: 100%;
-    }
   }
 
   @include responsive.mobile-and-small-tablet() {
