@@ -12,32 +12,23 @@ $large-button-height: 40px;
   justify-content: inherit;
   align-items: center;
   height: $medium-button-height;
-  padding: 0 16px;
-  overflow: hidden;
 
-  font-family: var(--body-alt-font-family);
-  font-weight: var(--body-font-weight-bold);
-  font-size: 16px;
-  line-height: 18px;
-  text-align: center;
+  padding: 0.8rem 1.5rem;
+  overflow: hidden;
+  font-family: var(--font-record-lazer);
+  font-weight: 700;
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-decoration: none;
+  border: none;
   border-radius: 4px;
+
   outline: none;
   cursor: pointer;
+
   transition: background-color 0.1s ease, transform 0.1s ease, opacity 0.1s ease;
-
-  @media (hover: hover) and (pointer: fine) {
-    &:not(.disabled) {
-      &:hover {
-        z-index: 1;
-        transform: scale(1.05);
-      }
-
-      &:active {
-        opacity: 0.8
-      }
-    }
-  }
 
   &.disabled {
     cursor: default;
@@ -54,7 +45,7 @@ $large-button-height: 40px;
 
   &.default {
     color: currentColor;
-    background-color: theme.$btn-default-bg;
+    background-color: transparent;
 
     &:focus {
       outline-offset: 2px;
@@ -62,8 +53,8 @@ $large-button-height: 40px;
   }
 
   &.primary {
-    color: var(--highlight-contrast-color, theme.$btn-primary-color);
-    background-color: var(--highlight-color, theme.$btn-primary-bg);
+    color: var(theme.$white);
+    background-color: theme.$primary-blue;
 
     &:focus {
       outline-offset: 2px;
@@ -92,7 +83,7 @@ $large-button-height: 40px;
 
       &:hover {
         z-index: 1;
-        background: theme.$btn-default-bg;
+        //background: theme.$btn-default-bg;
         opacity: 1;
       }
 
@@ -128,6 +119,23 @@ $large-button-height: 40px;
   > svg {
     width: 18px;
     height: 18px;
+  }
+  @include responsive.mobile-and-tablet {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not(.disabled) {
+      &:hover {
+        z-index: 1;
+        //transform: scale(1.05);
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
   }
 }
 

@@ -61,7 +61,6 @@ function Card({
     i18n: { language },
   } = useTranslation(['common', 'video']);
   // t('play_item')
-
   const cardClassName = classNames(styles.card, {
     [styles.featured]: featured,
     [styles.disabled]: disabled,
@@ -112,6 +111,7 @@ function Card({
       </div>
     );
   };
+
   return (
     <Link
       role="button"
@@ -124,7 +124,7 @@ function Card({
     >
       {/* {!featured && renderHeading()} */}
       <div className={posterClassNames}>
-        <Image className={styles.posterImage} image={image} width={featured ? 640 : 320} alt="" />
+        <Image className={styles.posterImage} image={image} width={720} alt="" />
         {!loading && (
           <div className={classNames(styles.meta, { [styles.featured]: featured })}>
             {featured && renderHeading()}

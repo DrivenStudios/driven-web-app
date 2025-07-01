@@ -54,6 +54,7 @@ const MediaMovie: ScreenComponent<PlaylistItem> = ({ data, isLoading }) => {
   // Media
   const { isLoading: isTrailerLoading, data: trailerItem } = useMedia(data?.trailerId || '');
   const { isLoading: isPlaylistLoading, data: playlist } = usePlaylist(features?.recommendationsPlaylist || '', { related_media_id: id });
+  const logoUrl = `https://cdn.jwplayer.com/v2/media/${id}/images/logo.png`;
 
   // User, entitlement
   const { user, subscription } = useAccountStore(({ user, subscription }) => ({ user, subscription }), shallow);
@@ -139,6 +140,7 @@ const MediaMovie: ScreenComponent<PlaylistItem> = ({ data, isLoading }) => {
         {data ? <script type="application/ld+json">{generateMovieJSONLD(data, env.APP_PUBLIC_URL)}</script> : null}
       </Helmet>
       <VideoLayout
+        logo={logoUrl}
         item={data}
         inlineLayout={inlineLayout}
         isLoading={isLoading || isPlaylistLoading}

@@ -59,6 +59,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
   const { isLoading: isTrailerLoading, data: trailerItem } = useMedia(episode?.trailerId || '');
   const { isLoading: isSeriesDictionaryLoading, data: episodeInSeries } = useSeriesLookup(episodeId || undefined);
   const { isLoading: isFirstEpisodeLoading, data: firstEpisode } = useFirstEpisode({ series });
+  const logoUrl = `https://cdn.jwplayer.com/v2/media/${seriesId}/images/logo.png`;
 
   // Whether we show series or episode information
   const selectedItem = (episode || seriesMedia) as PlaylistItem;
@@ -260,6 +261,7 @@ const MediaSeries: ScreenComponent<PlaylistItem> = ({ data: seriesMedia }) => {
         ) : null}
       </Helmet>
       <VideoLayout
+        logo={logoUrl}
         item={selectedItem}
         title={inlineLayout ? selectedItem.title : seriesMedia.title}
         description={selectedItem.description || seriesMedia.description}
