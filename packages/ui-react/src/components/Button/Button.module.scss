@@ -11,7 +11,8 @@ $large-button-height: 40px;
   display: inline-flex;
   justify-content: inherit;
   align-items: center;
-  height: $medium-button-height;
+  //height: $medium-button-height;
+  min-height: $medium-button-height;
 
   padding: 0.8rem 1.5rem;
   overflow: hidden;
@@ -36,11 +37,11 @@ $large-button-height: 40px;
   }
 
   &.small {
-    height: $small-button-height;
+    //height: $small-button-height;
   }
 
   &.large {
-    height: $large-button-height;
+    //height: $large-button-height;
   }
 
   &.default {
