@@ -79,6 +79,7 @@
 }
 
 .relatedVideos {
+  width: 100%;
   padding: calc(variables.$base-spacing * 2) calc(variables.$base-spacing * 3);
 
   @include responsive.tablet-only() {
