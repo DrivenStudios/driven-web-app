@@ -21,7 +21,7 @@ env:
   ECS_CLUSTER: DrivenStudiosProductionCluster
   ECS_TASK_DEFINITION: .aws/prod/task-definition.json
   CONTAINER_NAME: DrivenWebAppContainer
-  PROPERTY_ID: gwrpd0yt
+  PROPERTY_ID: f7fuxhql
 jobs:
   deploy:
     name: Deploy
