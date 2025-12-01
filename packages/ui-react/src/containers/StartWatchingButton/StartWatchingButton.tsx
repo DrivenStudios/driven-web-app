@@ -47,7 +47,8 @@ const StartWatchingButton: React.VFC<Props> = ({ item, playUrl, disabled = false
   const startWatchingLabel = useMemo((): string => {
     if (isEntitled) return typeof videoProgress === 'number' ? t('continue_watching') : t('start_watching');
     if (hasMediaOffers) return t('buy');
-    if (!isLoggedIn) return t('sign_up_to_start_watching');
+    if (!isLoggedIn) return 'Sign in to start watching';
+    //if (!isLoggedIn) return t('sign_up_to_start_watching');
 
     return t('complete_your_subscription');
   }, [isEntitled, isLoggedIn, hasMediaOffers, videoProgress, t]);
@@ -68,7 +69,7 @@ const StartWatchingButton: React.VFC<Props> = ({ item, playUrl, disabled = false
       }
       return playUrl && navigate(playUrl);
     }
-    if (!isLoggedIn) return navigate(modalURLFromLocation(location, 'create-account'));
+    if (!isLoggedIn) return navigate(modalURLFromLocation(location, 'login'));
     if (hasMediaOffers) return navigate(modalURLFromLocation(location, 'choose-offer'));
 
     return navigate('/u/payments');
