@@ -20,6 +20,7 @@ const config: KnipConfig = {
     },
     'packages/ui-react': {
       entry: ['src/**/*'],
+      ignore: ['vitest.config.ts'],
       ignoreDependencies: [
         'sass-embedded', // Used in Vite
         'postcss-config-jwp', // Used in postcss.config

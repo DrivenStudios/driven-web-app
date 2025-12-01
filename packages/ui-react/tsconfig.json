@@ -3,9 +3,11 @@
   "include": [
     "src",
     "types",
-    "vitest.config.ts",
     "vitest.setup.ts",
     "../common/types"
+  ],
+  "exclude": [
+    "vitest.config.ts"
   ],
   "compilerOptions": {
     "noEmit": true,

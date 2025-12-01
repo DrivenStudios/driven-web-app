@@ -21,14 +21,14 @@ type Props = {
   favoritesEnabled: boolean;
 };
 
-const UserMenu = ({ isLoggedIn, favoritesEnabled, open, onClose, onOpen, onLoginButtonClick, onSignUpButtonClick }: Props) => {
+const UserMenu = ({ isLoggedIn, favoritesEnabled, open, onClose, onOpen, onLoginButtonClick /* onSignUpButtonClick */ }: Props) => {
   const { t } = useTranslation('menu');
 
   if (!isLoggedIn) {
     return (
       <>
         <Button onClick={onLoginButtonClick} label={t('sign_in')} aria-haspopup="dialog" />
-        <Button variant="contained" color="primary" onClick={onSignUpButtonClick} label={t('sign_up')} aria-haspopup="dialog" />
+        {/* <Button variant="contained" color="primary" onClick={onSignUpButtonClick} label={t('sign_up')} aria-haspopup="dialog" /> */}
       </>
     );
   }
