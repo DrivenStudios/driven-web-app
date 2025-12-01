@@ -32,7 +32,7 @@ type Props = {
   siteName?: string;
 };
 
-const LoginForm: React.FC<Props> = ({ onSubmit, onChange, values, errors, validationError, submitting, siteName }: Props) => {
+const LoginForm: React.FC<Props> = ({ onSubmit, onChange, values, errors, validationError, submitting /* siteName */ }: Props) => {
   const [viewPassword, toggleViewPassword] = useToggle();
   const { t } = useTranslation('account');
   const location = useLocation();
@@ -81,9 +81,9 @@ const LoginForm: React.FC<Props> = ({ onSubmit, onChange, values, errors, valida
         {t('login.forgot_password')}
       </Link>
       <Button type="submit" label={t('login.sign_in')} variant="contained" color="primary" size="large" disabled={submitting} fullWidth />
-      <p className={styles.bottom}>
+      {/*       <p className={styles.bottom}>
         {t('login.not_registered', { siteName })} <Link to={modalURLFromLocation(location, 'create-account')}>{t('login.sign_up')}</Link>
-      </p>
+      </p> */}
     </form>
   );
 };
