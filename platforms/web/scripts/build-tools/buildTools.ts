@@ -159,27 +159,55 @@ const createGoogleFontTags = (fontFamily: string[]) => {
 export const getGtmTags = (script: string, env: Record<string, string>) => {
   const tags: HtmlTagDescriptor[] = [];
   const enabled = env.APP_GTM_TAG_ID && env.APP_GTM_LOAD_ON_ACCEPT !== 'true';
-  const tagServer = env.APP_GTM_TAG_SERVER || 'https://www.googletagmanager.com';
+  const tagId = env.APP_GTM_TAG_ID;
+  const isGtmContainer = tagId?.startsWith('GTM-');
+  const isGoogleTag = tagId?.startsWith('GT-') || tagId?.startsWith('G-');
 
   // Load GTM immediately without waiting for consent. Consent should be handled by GTM.
-  if (enabled && script) {
-    if (tagServer.indexOf('www.googletagmanager.com') !== -1) {
-      console.warn('GTM is loaded immediately from the Google domain. This may not be GDPR compliant.');
-    }
+  if (enabled && tagId) {
+    if (isGtmContainer && script) {
+      // GTM Container ID (GTM-XXXXX) - use gtm.js script
+      const tagServer = env.APP_GTM_TAG_SERVER || 'https://www.googletagmanager.com';
+      if (tagServer.indexOf('www.googletagmanager.com') !== -1) {
+        console.warn('GTM is loaded immediately from the Google domain. This may not be GDPR compliant.');
+      }
 
-    tags.push(
-      {
-        injectTo: 'head',
-        tag: 'script',
-        children: script,
-      },
-      {
-        injectTo: 'body-prepend',
-        tag: 'noscript',
-        children: `<iframe src="${tagServer}/ns.html?id=${env.APP_GTM_TAG_ID}"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-      },
-    );
+      tags.push(
+        {
+          injectTo: 'head',
+          tag: 'script',
+          children: script,
+        },
+        {
+          injectTo: 'body-prepend',
+          tag: 'noscript',
+          children: `<iframe src="${tagServer}/ns.html?id=${tagId}"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        },
+      );
+    } else if (isGoogleTag) {
+      // Google Tag ID (GT-XXXXX or G-XXXXX) - use gtag.js
+      tags.push(
+        {
+          injectTo: 'head',
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: `https://www.googletagmanager.com/gtag/js?id=${tagId}`,
+          },
+        },
+        {
+          injectTo: 'head',
+          tag: 'script',
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${tagId}');
+          `,
+        },
+      );
+    }
   }
 
   return tags;
