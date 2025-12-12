@@ -51,13 +51,18 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
   const bodyAltFontsString = bodyAltFonts.map((font) => font.fontFamily).join(', ');
 
   // Head tags
-  const gtmScript = getGtmScript(path.join(__dirname, 'scripts/gtm.js'), env.APP_GTM_TAG_ID, env.APP_GTM_TAG_SERVER);
+  // Only generate GTM script for GTM container IDs (GTM-XXXXX), not for Google Tag IDs (GT-XXXXX or G-XXXXX)
+  const isGtmContainer = env.APP_GTM_TAG_ID?.startsWith('GTM-');
+  const gtmScript = isGtmContainer 
+    ? getGtmScript(path.join(__dirname, 'scripts/gtm.js'), env.APP_GTM_TAG_ID, env.APP_GTM_TAG_SERVER)
+    : '';
   const fontTags = getGoogleFontTags([bodyFonts, bodyAltFonts].flat());
   const metaTags = getMetaTags({
     'apple-itunes-app': env.APP_APPLE_ITUNES_APP ? `app-id=${env.APP_APPLE_ITUNES_APP}` : undefined,
     'google-site-verification': env.APP_GOOGLE_SITE_VERIFICATION_ID,
   });
-  const tags = [fontTags, metaTags, getGtmTags(gtmScript, env)].flat();
+  const gtmTags = getGtmTags(gtmScript, env);
+  const tags = [fontTags, metaTags, gtmTags].flat();
 
   const related_applications = getRelatedApplications({
     appleAppId: env.APP_APPLE_ITUNES_APP,
